@@ -1,3 +1,5 @@
+<img src=".github/Remitly_Horizontal_Logo_Preferred_RGB_Indigo_192x44.png" width="192" title="Remitly Logo" />
+
 # Connected Experiences SDK for React Native
 
 Remitly Connected Experiences enables businesses to offer cross border money transfers to their customers through a simple and lightweight integration.

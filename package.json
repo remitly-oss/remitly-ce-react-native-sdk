@@ -22,7 +22,7 @@
     "postpackage": "rm -rf ../dist",
     "native:clean": "react-native start --reset-cache",
     "node:clean": "rm -rf ./node_modules && yarn cache clean && yarn",
-    "clean:all": "yarn node:clean && yarn android:clean && yarn ios:clean && yarn native:clean",
+    "clean:all": "yarn node:clean && yarn android:clean && yarn ios:clean && yarn native:clean"
   },
   "repository": {
     "type": "git",
