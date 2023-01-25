@@ -1,0 +1,28 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "composite": true,
+        "jsx": "react",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "lib": [
+            "es5",
+            "es2015",
+            "es2016",
+            "es2017.object"
+        ],
+        "baseUrl": "src",
+        "paths": {
+            "@remitly/react-native-remitly-cesdk/*": ["./*"]
+        },
+        "types": ["istanbul-lib-coverage", "istanbul-lib-report", "istanbul-reports", "react", "react-native", "prop-types", "scheduler", "yargs", "yargs-parser"],
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "skipLibCheck": true,
+}

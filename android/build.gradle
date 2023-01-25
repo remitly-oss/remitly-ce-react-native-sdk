@@ -1,0 +1,53 @@
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.7.21"
+        classpath 'com.google.gms:google-services:4.3.14'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+if (!project.pluginManager.hasPlugin('kotlin-android')) {
+    apply plugin: 'kotlin-android'
+}
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', 33)
+
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 21)
+        targetSdkVersion safeExtGet('targetSdkVersion', 33)
+        versionName VERSION_NAME
+    }
+}
+
+repositories {
+    // rootDir -> /example/android
+    // projectDir -> /android
+    // Uncomment following lines to print dirs
+    // println  "Root dir: " + rootDir
+    // println  "Project dir: " + projectDir
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url("$projectDir/../node_modules/react-native/android")
+    }
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    //noinspection GradleDynamicVersion
+    implementation "com.facebook.react:react-native:+" // From node_modules
+    
+    implementation 'com.remitly:cesdk:0.1.8'
+}
+

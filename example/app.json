@@ -1,0 +1,29 @@
+{
+  "name": "cesdk-example",
+  "displayName": "cesdk-example",
+  "singleApp": "cesdk-example-app",
+  "components": [
+    {
+      "appKey": "cesdk-example",
+      "displayName": "cesdk-example",
+      "slug": "cesdk-example-app"
+    }
+  ],
+  "ios": {
+    "developmentTeam": "9GVV2WVHAT",
+    "bundleIdentifier": "com.remitly.cesdk"
+  },
+  "android": {
+    "package": "com.remitly.cesdk.example"
+  },
+  "resources": {
+    "android": [
+      "dist/res",
+      "dist/main.android.jsbundle"
+    ],
+    "ios": [
+      "dist/assets",
+      "dist/main.ios.jsbundle"
+    ]
+  }
+}

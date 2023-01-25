@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
+        google()
+    }
+}
+
+rootProject.name = "example"
+
+apply(from: "../../node_modules/react-native-test-app/test-app.gradle")
+applyTestAppSettings(settings)
+
+include ':react-native-remitly-cesdk'
+project(':react-native-remitly-cesdk').projectDir = new File('../../android')

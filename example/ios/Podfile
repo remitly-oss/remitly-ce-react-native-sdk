@@ -1,0 +1,26 @@
+source 'https://cdn.cocoapods.org/'
+source 'git@github.com:Remitly/rmpods.git'
+require_relative '../../node_modules/react-native-test-app/test_app.rb'
+
+workspace 'example.xcworkspace'
+
+use_flipper!
+
+use_test_app! do |target|
+    target.app do
+
+        # merge our Assets (primarily AppIcon) to the ReactTestApp
+        script_phase :name => 'Copy AppIcon images', :execution_position => :before_compile, :script => '
+cp -R $PODS_PODFILE_DIR_PATH/Assets.xcassets/  $PROJECT_DIR/$PROJECT_NAME/Assets.xcassets'
+
+        # ensure we bundle the RN code with the ReactTestApp
+        script_phase :name => 'Bundle React Native code and images', :execution_position => :after_compile, :script => '
+set -e
+
+WITH_ENVIRONMENT="../../react-native/scripts/xcode/with-environment.sh"
+REACT_NATIVE_XCODE="../../react-native/scripts/react-native-xcode.sh"
+
+/bin/sh -c "$WITH_ENVIRONMENT $REACT_NATIVE_XCODE"'
+
+    end
+end

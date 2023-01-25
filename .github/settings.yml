@@ -1,0 +1,8 @@
+branches:
+    - name: master
+      protection:
+          # All conversations on code must be resolved before a pull request can be merged
+          required_conversation_resolution: true
+          required_pull_request_reviews:
+              # Blocks merge until code owners have reviewed
+              require_code_owner_reviews: true

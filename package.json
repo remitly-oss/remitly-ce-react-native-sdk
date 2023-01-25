@@ -1,0 +1,55 @@
+{
+  "name": "@remitly/react-native-remitly-cesdk",
+  "version": "1.4.3",
+  "description": "SDK for Remitly's connected experiences",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "android": "react-native run-android --appId com.remitly.cesdk.example",
+    "android:clean": "(cd example/android && ./gradlew clean)",
+    "ios": "concurrently 'yarn ios:packager' 'react-native run-ios --scheme cesdk-example'",
+    "ios:clean": "(cd example/ios && rm -rf Pods && pod install)",
+    "ios:packager": "tools/packager.sh -p ios --launch",
+    "ios:pick": "yarn ios:packager && react-native run-ios --scheme cesdk-example --simulator",
+    "start": "cd example && react-native start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc:src": "yarn run tsc -p tsconfig.json --noEmit",
+    "tsc:ex": "yarn run tsc -p ./example/tsconfig.json --noEmit",
+    "copy-files-to-dist": "mkdir -p ./dist && mkdir -p ./dist/ios && cp -R ./ios ./dist/ && mkdir -p ./dist/android && cp -R android ./dist/ && cp README.md ./dist && cp package.json ./dist && cp react-native-remitly-cesdk.podspec ./dist",
+    "sync-version": "node -p \"'export const LIB_VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
+    "prepackage": "yarn sync-version && yarn run tsc -b --clean && yarn copy-files-to-dist && tsc -p tsconfig.json",
+    "create-package": "yarn prepackage && cd ./dist && yarn pack && mv remitly-react-native?*.tgz ../ && yarn postpackage",
+    "postpackage": "rm -rf ../dist",
+    "native:clean": "react-native start --reset-cache",
+    "node:clean": "rm -rf ./node_modules && yarn cache clean && yarn",
+    "clean:all": "yarn node:clean && yarn android:clean && yarn ios:clean && yarn native:clean",
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remitly-oss/remitly-ce-react-native-sdk"
+  },
+  "author": "Nick Wright <nickw@remitly.com>",
+  "license": "MIT",
+  "keywords": [
+    "Remitly",
+    "Connected Experiences"
+  ],
+  "devDependencies": {
+    "@types/react": "18.0.14",
+    "@types/react-native": "^0.69.5",
+    "@typescript-eslint/parser": "^5.27.1",
+    "babel-plugin-root-import": "^6.5.0",
+    "concurrently": "^4.1.0",
+    "react": "18.0.0",
+    "react-native": "0.70.6",
+    "react-native-test-app": "2.0.2",
+    "typescript": "^4.7.3"
+  },
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": "^1.12.1",
+    "react-native": "=0.70.6"
+  },
+  "resolutions": {
+    "@types/react": "18.0.14"
+  }
+}

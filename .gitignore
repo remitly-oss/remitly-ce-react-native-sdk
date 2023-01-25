@@ -1,0 +1,32 @@
+# Logs
+*.log
+npm-debug.log
+
+# Runtime data
+tmp
+build
+dist
+
+# Dependency directory
+node_modules
+
+# DS Store
+.DS_Store
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Intellij / Android Studio
+.gradle/
+.idea/
+.project/
+.classpath/
+.settings/
+*.iml
+local.properties
+build/
+captures/
+.externalNativeBuild
+.cxx
+
+.yarn/

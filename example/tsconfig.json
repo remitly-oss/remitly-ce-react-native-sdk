@@ -1,0 +1,14 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "../",
+        "baseUrl": "../",
+        "paths": {
+            "@remitly/react-native-remitly-cesdk": ["./src/"]
+        },
+    },
+    "include": [
+        "../src/**/*",
+        "../example/**/*"
+    ],
+}

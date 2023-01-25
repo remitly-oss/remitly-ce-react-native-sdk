@@ -1,0 +1,22 @@
+buildscript {
+    def androidTestAppDir = "../../node_modules/react-native-test-app/android"
+    apply(from: "${androidTestAppDir}/dependencies.gradle")
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        google()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.3.0"
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+    }
+}
