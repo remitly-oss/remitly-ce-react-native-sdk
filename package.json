@@ -1,6 +1,6 @@
 {
   "name": "@remitly/react-native-remitly-cesdk",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "SDK for Remitly's connected experiences",
   "main": "./index.js",
   "types": "./index.d.ts",
